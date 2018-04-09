@@ -1,12 +1,13 @@
 var place=document.getElementById("placeinfo");
 var temp=document.getElementById("temp");
+var firstText=document.getElementById("firstText");
 var univtemp;
 getLocation();
-
 
 function getLocation(){
 if(navigator.geolocation){
 navigator.geolocation.getCurrentPosition(function(position){
+  firstText.style.opacity=0;
     const lat=position.coords.latitude;
     const lon=position.coords.longitude;
     $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+lat+"&lon="+lon,api);
